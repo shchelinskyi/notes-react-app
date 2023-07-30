@@ -1,0 +1,12 @@
+.content {
+  width: 1200px;
+  margin: 10px auto 30px;
+  padding: 20px;
+  border: 2px solid #02094e;
+  border-radius: 20px;
+}
+.createBlock{
+  display: flex;
+  gap: 20px;
+  justify-content: flex-end;
+}

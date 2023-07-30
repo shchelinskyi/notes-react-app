@@ -1,0 +1,27 @@
+.titleBlock {
+    margin-bottom: 10px;
+    display:grid;
+    grid-template-columns: 3fr  1.5fr repeat(2, 2fr) 100px 1fr;
+    background-color: #999999;
+    color:#ffffff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.titleItem {
+    padding: 10px;
+    text-align: center;
+}
+
+.titleIcons {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap:10px;
+}
+
+.icon {
+    font-family: "fontello", sans-serif;
+    font-size: 20px;
+    font-weight: normal;
+}

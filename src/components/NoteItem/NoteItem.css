@@ -1,0 +1,123 @@
+.note{
+    padding: 10px 0 10px 10px;
+    margin-bottom: 10px;
+    display:grid;
+    grid-template-columns: 3fr  1.5fr repeat(2, 2fr) 100px 1fr;
+    gap: 5px;
+    align-items: center;
+    background-color: #e8eaf5;
+    color:#ffffff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+.nameBlock {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.imgName {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.nameValue {
+    max-width: 250px;
+    width: 250px;
+    height: auto;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: bold;
+    color: #8e8e95;
+}
+
+.createdItem{
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: bold;
+    color: #8e8e95;
+    width: 100%;
+    text-align: center;
+}
+
+.categoryItem {
+    background-color: transparent;
+    border:none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #8e8e95;
+    width: 100%;
+    text-align: center;
+}
+
+.categoryItem:disabled {
+    background-color: transparent;
+    border:none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #8e8e95;
+    text-align: center;
+}
+
+.contentValue {
+    width: 190px;
+    max-width: 190px;
+    height: auto;
+    font-size: 16px;
+    font-weight: bold;
+    color: #8e8e95;
+}
+
+.datesValue  {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    font-size: 16px;
+    font-weight: bold;
+    color: #8e8e95;
+    text-align: center;
+}
+
+.btnChangeBlock {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+    padding: 0;
+}
+
+.btnAction {
+    width: 33%;
+    background-color: transparent;
+    border: none;
+    font-family: "fontello", sans-serif;
+    font-size: 18px;
+    color:#7a7a7a;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+.btnAction:hover  {
+    transform: scale(1.1);
+}
+
+.inputActive {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8e8e95;
+    border: 2px solid blue;
+}
+
+.noItems {
+    font-size: 20px;
+    color: #8e8e95;
+}
+
+.inputActive {
+    font-size: 16px;
+    font-weight: bold;
+    color: #8e8e95;
+    border: 2px solid blue;
+}
