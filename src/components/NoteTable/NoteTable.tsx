@@ -1,7 +1,7 @@
 import React from 'react';
 import NoteTableTitle from "../NoteTableTitle/NoteTableTitle";
 import NoteItem from "../NoteItem/NoteItem";
-import './NoteTable.css';
+import s from './NoteTable.module.scss';
 import {useAppSelector} from "../../hook";
 import {Note as NoteProps} from "../../redux/slice/notesSlice"
 
@@ -12,7 +12,7 @@ const NoteTable: React.FC = () => {
 
     return (
        <div>
-           <h3 className="titleContent">My Notes</h3>
+           <h3 className={s.titleContent}>My Notes</h3>
            <NoteTableTitle/>
            <div>
                {notes.length>0 && notes.map(item => <NoteItem key= {item.id} item={item} /> )}

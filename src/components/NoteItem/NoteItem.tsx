@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import './NoteItem.css';
+import s from './NoteItem.module.scss';
 import {archiveNote, deleteNote, editNote, Note, unzipNote} from "../../redux/slice/notesSlice"
 import {useAppDispatch} from "../../hook";
 import setDataFormat from "../../utils/setDataFormat";
@@ -48,10 +48,10 @@ const NoteItem: React.FC <NoteItemProps> = ({item}) => {
         };
 
     return (
-        <div className='note'>
-            <div className='nameBlock'>
-                <img src={imgSrc} className='imgName' alt='iconName'/>
-                {!isEdit && <span className='nameValue'>{item.nameValue}</span>}
+        <div className={s.note}>
+            <div className={s.nameBlock}>
+                <img src={imgSrc} className={s.imgName} alt='iconName'/>
+                {!isEdit && <span className={s.nameValue}>{item.nameValue}</span>}
                 {isEdit && <input
                     className='inputActive'
                     name="nameNote"
@@ -62,10 +62,10 @@ const NoteItem: React.FC <NoteItemProps> = ({item}) => {
                     required
                 />}
             </div>
-            <span className='createdItem'>{item.formattedDate}</span>
-            {!isEdit && <span className='createdItem'>{item.categoryValue}</span>}
+            <span className={s.createdItem}>{item.formattedDate}</span>
+            {!isEdit && <span className={s.createdItem}>{item.categoryValue}</span>}
             {isEdit &&
-            <select className='categoryItem'
+            <select className={s.categoryItem}
                     value={categoryValue}
                     name="category"
                     onChange={(e) => setCategoryValue(e.target.value)}
@@ -75,10 +75,10 @@ const NoteItem: React.FC <NoteItemProps> = ({item}) => {
                 <option value="Idea">Idea</option>
             </select>
             }
-            {!isEdit && <span className='contentValue'>{item.contentValue}</span>}
+            {!isEdit && <span className={s.contentValue}>{item.contentValue}</span>}
             {isEdit &&
                 <input
-                    className='inputActive'
+                    className={s.inputActive}
                     name="nameNote"
                     type="text"
                     placeholder="Name"
@@ -87,13 +87,13 @@ const NoteItem: React.FC <NoteItemProps> = ({item}) => {
                     required
                 />
             }
-            <span className='datesValue'>{item.datesValue}</span>
-            <div className='btnChangeBlock'>
-                {!isEdit && <button className='btnAction' onClick={() => setIsEdit(true)}>a</button>}
-                {isEdit && <button className='btnAction' onClick={(e) => handleEdit(e)}>e</button>}
-                {!item.archived &&   <button className='btnAction' onClick={()=> {dispatch(archiveNote(item.id))}}>c</button>}
-                {item.archived &&   <button className='btnAction' onClick={() => dispatch(unzipNote(item.id))}>d</button>}
-                <button className='btnAction' onClick={() => dispatch(deleteNote(item.id))}>b</button>
+            <span className={s.datesValue}>{item.datesValue}</span>
+            <div className={s.btnChangeBlock}>
+                {!isEdit && <button className={s.btnAction} onClick={() => setIsEdit(true)}>a</button>}
+                {isEdit && <button className={s.btnAction} onClick={(e) => handleEdit(e)}>e</button>}
+                {!item.archived &&   <button className={s.btnAction} onClick={()=> {dispatch(archiveNote(item.id))}}>c</button>}
+                {item.archived &&   <button className={s.btnAction} onClick={() => dispatch(unzipNote(item.id))}>d</button>}
+                <button className={s.btnAction} onClick={() => dispatch(deleteNote(item.id))}>b</button>
             </div>
         </div>
     );

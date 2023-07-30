@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './NoteForm.css';
+import s from './NoteForm.module.scss';
 import {useAppDispatch, useAppSelector} from "../../hook";
 import {closeForm} from "../../redux/slice/formSlice";
 import setDataFormat from "../../utils/setDataFormat";
@@ -38,11 +38,11 @@ const NoteForm: React.FC = () => {
     };
 
     return (
-        <div className='formContainer'>
-            <h3 className="formTitle">Create Note</h3>
+        <div className={s.formContainer}>
+            <h3 className={s.formTitle}>Create Note</h3>
             <form onSubmit={handleSubmit}>
                 <input
-                    className='formInput'
+                    className={s.formInput}
                     name="nameNote"
                     type="text"
                     placeholder="Name"
@@ -51,7 +51,7 @@ const NoteForm: React.FC = () => {
                     required
                 />
                 <select
-                        className='categorySelect'
+                        className={s.categorySelect}
                         name="category"
                         value={categoryValue}
                         onChange={(e) => setCategoryValue(e.target.value)}
@@ -62,17 +62,17 @@ const NoteForm: React.FC = () => {
                     <option value="Idea">Idea</option>
                 </select>
                 <textarea
-                    className="formTextArea"
+                    className={s.formTextArea}
                     name="content"
                     value={contentValue}
                     onChange={(e) => setContentValue(e.target.value)}
                     placeholder="Content"
                 >
                 </textarea>
-                <p className="error">Please fill in all fields</p>
-                <div className="btnBlock">
-                    <button className="btnForm" type="submit">Add Note</button>
-                    <button className="btnForm" onClick={() => dispatch(closeForm())}>Close</button>
+                <p className={s.error}>Please fill in all fields</p>
+                <div className={s.btnBlock}>
+                    <button className={s.btnForm} type="submit">Add Note</button>
+                    <button className={s.btnForm} onClick={() => dispatch(closeForm())}>Close</button>
                 </div>
             </form>
         </div>

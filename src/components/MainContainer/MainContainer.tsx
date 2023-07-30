@@ -1,5 +1,5 @@
 import React from 'react';
-import './MainContainer.css';
+import s from './MainContainer.module.scss';
 import {useAppDispatch, useAppSelector} from '../../hook'
 import NoteTable from "../NoteTable/NoteTable";
 import NoteForm from "../NoteForm/NoteForm";
@@ -8,15 +8,16 @@ import NoteArchiveTable from "../NoteArchiveTable/NoteArchiveTable";
 import TotalBlock from "../TotalBlock/TotalBlock";
 import {closeArchiveBlock, openArchiveBlock} from "../../redux/slice/archiveBlockSlice";
 
+
 const MainContainer: React.FC = () => {
     const dispatch = useAppDispatch();
     const isFormOpen = useAppSelector(state => state.form.openForm);
     const isArchivedBlockOpen = useAppSelector(state => state.archiveBlock.openArchiveBlock);
     return (
         <>
-            <div className='content'>
+            <div className={s.content}>
                 <NoteTable/>
-                <div className="createBlock">
+                <div className={s.createBlock}>
                     <button onClick={() => dispatch(openForm())}>Create Note</button>
                     {!isArchivedBlockOpen && <button onClick={() => dispatch(openArchiveBlock())}>Show archived Notes</button>}
                     {isArchivedBlockOpen && <button onClick={() => dispatch(closeArchiveBlock())}>Hide archived Notes</button>}
@@ -24,16 +25,17 @@ const MainContainer: React.FC = () => {
             </div>
 
             {isArchivedBlockOpen &&
-                <div className='content'>
+                <div className={s.content}>
                     <NoteArchiveTable/>
                 </div>
             }
 
-            <div className='content'>
+            <div className={s.content}>
                 <TotalBlock/>
             </div>
 
             {!!isFormOpen && <NoteForm/>}
+
 
         </>
     );
