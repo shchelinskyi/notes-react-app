@@ -1,0 +1,28 @@
+
+.titleBlockTotal {
+    display:grid;
+    grid-template-columns: 3fr 2fr 2fr 3fr;
+    background-color: #999999;
+    color:#ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+.nameBlock {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.titleItem {
+    padding: 10px;
+    text-align: center;
+}
+
+.noItems {
+    margin: 20px 0;
+    text-align: center;
+}
+

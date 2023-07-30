@@ -1,0 +1,79 @@
+.formContainer {
+    width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+
+.formTitle {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight:bold;
+    color: #4b4848;
+}
+
+.formInput {
+    height: 30px;
+    width: 410px;
+    margin-bottom: 10px;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+}
+
+.formInput::placeholder {
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+}
+
+.formTextArea {
+    min-height: 30px;
+    height: 30px;
+    width: 410px;
+    max-width: 410px;
+    min-width: 410px;
+    margin-bottom: 10px;
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+}
+
+.formTextArea::placeholder {
+    font-family: Roboto, sans-serif;
+    font-size: 14px;
+}
+
+.categorySelect {
+    height: 30px;
+    margin-bottom: 10px;
+    width: 410px;
+    max-width: 410px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btnBlock {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btnForm {
+    padding: 5px 20px ;
+    cursor: pointer;
+}
+
+.error {
+    display: none;
+    color: red;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.showError {
+    display: block;
+}
