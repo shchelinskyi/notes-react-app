@@ -1,9 +1,6 @@
 import React from 'react';
 import s from './NoteTableTitle.module.scss'
-
-
 const NoteTableTitle: React.FC = () => {
-
 
     return (
         <div >

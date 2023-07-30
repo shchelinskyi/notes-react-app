@@ -1,14 +1,11 @@
 import React from 'react';
 import NoteTableTitle from "../NoteTableTitle/NoteTableTitle";
 import NoteItem from "../NoteItem/NoteItem";
-import s from './NoteArchiveTable.module.scss';
 import {useAppSelector} from "../../hook";
-import {Note as NoteProps} from "../../redux/slice/notesSlice"
-
+import s from './NoteArchiveTable.module.scss';
 
 const NoteArchiveTable: React.FC = () => {
     const notes = useAppSelector((state) => state.notes.archivedNotes);
-    // const dispatch = useDispatch();
 
     return (
        <div>
@@ -16,6 +13,7 @@ const NoteArchiveTable: React.FC = () => {
            <NoteTableTitle/>
            <div>
                {notes.length>0 && notes.map(item => <NoteItem key= {item.id*2} item={item} /> )}
+               {notes.length === 0 &&  <div className={s.noItems}>No notes</div>}
            </div>
         </div>
     );

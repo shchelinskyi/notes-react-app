@@ -3,7 +3,7 @@ import s from './TotalBlock.module.scss';
 import {useAppSelector} from "../../hook";
 import changeTotalData from "../../utils/changeTotalData";
 import {TotalData} from "../../utils/changeTotalData";
-
+import TotalItem from "../TotalItem/TotalItem";
 
 const TotalBlock: React.FC = () => {
     const initialState = {
@@ -39,35 +39,28 @@ const TotalBlock: React.FC = () => {
            </div>
            <div id="totalList" className={s.notesBlock}>
                {(totalData.taskActive > 0 || totalData.taskArchive > 0) &&
-               <div className={s.totalItem}>
-                   <div className={s.nameBlock}>
-                       <img src='./img/task.png' className={s.imgName} alt='iconName'/>
-                       <span>Task</span>
-                   </div>
-                   <span className={s.quantity}>{totalData.taskActive}</span>
-                   <span className={s.quantity}>{totalData.taskArchive}</span>
-               </div>
+                   <TotalItem imgSrc='./img/task.png'
+                              categoryName="Task"
+                              categoryActive={totalData.taskActive}
+                              categoryArchive={totalData.taskArchive}
+                   />
                }
                {(totalData.randomActive > 0 || totalData.randomArchive > 0) &&
-               <div className={s.totalItem}>
-                   <div className={s.nameBlock}>
-                       <img src='./img/random.png' className={s.imgName} alt='iconName'/>
-                       <span>Random Thought</span>
-                   </div>
-                   <span className={s.quantity}>{totalData.randomActive}</span>
-                   <span className={s.quantity}>{totalData.randomArchive}</span>
-               </div>
+                   <TotalItem imgSrc='./img/random.png'
+                              categoryName="Random Thought"
+                              categoryActive={totalData.randomActive}
+                              categoryArchive={totalData.randomArchive}
+                   />
                }
                {(totalData.ideaActive > 0 || totalData.ideaArchive > 0) &&
-               <div className={s.totalItem}>
-                   <div className={s.nameBlock}>
-                       <img src='./img/idea.png' className={s.imgName} alt='iconName'/>
-                       <span>Idea</span>
-                   </div>
-                   <span className={s.quantity}>{totalData.ideaActive}</span>
-                   <span className={s.quantity}>{totalData.ideaArchive}</span>
-               </div>
+                   <TotalItem imgSrc='./img/idea.png'
+                              categoryName="Idea"
+                              categoryActive={totalData.ideaActive}
+                              categoryArchive={totalData.ideaArchive}
+                   />
                }
+
+               {notes.length === 0 && <div className={s.noItems}>No data</div>}
            </div>
         </div>
     );

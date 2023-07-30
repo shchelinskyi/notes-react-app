@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import s from './NoteItem.module.scss';
 import {archiveNote, deleteNote, editNote, Note, unzipNote} from "../../redux/slice/notesSlice"
 import {useAppDispatch} from "../../hook";
-import setDataFormat from "../../utils/setDataFormat";
 import findDatesInString from "../../utils/findDatesInString";
+import s from './NoteItem.module.scss';
 
 interface NoteItemProps {
     item: Note;
@@ -25,7 +24,6 @@ const NoteItem: React.FC <NoteItemProps> = ({item}) => {
         } else {
             setImgSrc('./img/random.png')
         }
-
     }, [item.categoryValue])
     const handleEdit = (e: React.FormEvent) => {
         e.preventDefault();
@@ -53,7 +51,7 @@ const NoteItem: React.FC <NoteItemProps> = ({item}) => {
                 <img src={imgSrc} className={s.imgName} alt='iconName'/>
                 {!isEdit && <span className={s.nameValue}>{item.nameValue}</span>}
                 {isEdit && <input
-                    className='inputActive'
+                    className={s.inputActive}
                     name="nameNote"
                     type="text"
                     placeholder="Name"
