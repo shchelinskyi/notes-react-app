@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.18dd849c.css",
-    "main.js": "/static/js/main.a175e4fe.js",
-    "static/media/fontello.eot": "/static/media/fontello.5d752e4ad00e15e37095.eot",
-    "static/media/fontello.ttf": "/static/media/fontello.f457658cc5a8ebc3a96a.ttf",
-    "static/media/fontello.woff": "/static/media/fontello.2636abd690843776fbaf.woff",
-    "static/media/fontello.woff2": "/static/media/fontello.2e6fb5274b66f2a484ce.woff2",
-    "static/media/fontello.svg": "/static/media/fontello.198706e624ce4f573db9.svg",
-    "index.html": "/index.html",
-    "main.18dd849c.css.map": "/static/css/main.18dd849c.css.map",
-    "main.a175e4fe.js.map": "/static/js/main.a175e4fe.js.map"
+    "main.css": "/notes-react-app/static/css/main.76580084.css",
+    "main.js": "/notes-react-app/static/js/main.a175e4fe.js",
+    "static/media/fontello.eot": "/notes-react-app/static/media/fontello.5d752e4ad00e15e37095.eot",
+    "static/media/fontello.ttf": "/notes-react-app/static/media/fontello.f457658cc5a8ebc3a96a.ttf",
+    "static/media/fontello.woff": "/notes-react-app/static/media/fontello.2636abd690843776fbaf.woff",
+    "static/media/fontello.woff2": "/notes-react-app/static/media/fontello.2e6fb5274b66f2a484ce.woff2",
+    "static/media/fontello.svg": "/notes-react-app/static/media/fontello.198706e624ce4f573db9.svg",
+    "index.html": "/notes-react-app/index.html",
+    "main.76580084.css.map": "/notes-react-app/static/css/main.76580084.css.map",
+    "main.a175e4fe.js.map": "/notes-react-app/static/js/main.a175e4fe.js.map"
   },
   "entrypoints": [
-    "static/css/main.18dd849c.css",
+    "static/css/main.76580084.css",
     "static/js/main.a175e4fe.js"
   ]
 }
