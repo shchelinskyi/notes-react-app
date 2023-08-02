@@ -1,21 +1,18 @@
 import React from 'react';
-import s from './NoteTableTitle.module.scss'
 const NoteTableTitle: React.FC = () => {
 
     return (
-        <div >
-            <div className={s.titleBlock}>
-                <div className={s.titleItem}>Name</div>
-                <div className={s.titleItem}>Created</div>
-                <div className={s.titleItem}>Category</div>
-                <div className={s.titleItem}>Content</div>
-                <div className={s.titleItem}>Dates</div>
-                <div className={s.titleIcons}>
-                    <span className={s.icon}>c</span>
-                    <span className={s.icon}>b</span>
+            <div className='mb-4 grid grid grid-cols-[3fr_1.5fr_2fr_2fr_100px_1fr] bg-neutral-400 text-white text-18 font-bold'>
+                <div className="py-2 text-center">Name</div>
+                <div className="py-2 text-center">Created</div>
+                <div className="py-2 text-center">Category</div>
+                <div className="py-2 text-center">Content</div>
+                <div className="py-2 text-center">Dates</div>
+                <div className="py-2 flex justify-center gap-5">
+                    <span className='text-lg font-code'>c</span>
+                    <span className='text-lg font-code'>b</span>
                 </div>
             </div>
-        </div>
     );
 };
 

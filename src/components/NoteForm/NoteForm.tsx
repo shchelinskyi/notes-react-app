@@ -5,7 +5,6 @@ import findDatesInString from "../../utils/findDatesInString";
 import {closeForm} from "../../redux/slice/formSlice";
 import {addNote} from "../../redux/slice/notesSlice";
 import {Note} from "../../redux/slice/notesSlice"
-import s from './NoteForm.module.scss';
 
 const NoteForm: React.FC = () => {
     const dispatch = useAppDispatch();
@@ -36,11 +35,11 @@ const NoteForm: React.FC = () => {
     };
 
     return (
-            <div className={s.formContainer}>
-                <h3 className={s.formTitle}>Create Note</h3>
-                <form onSubmit={handleSubmit}>
+            <div className='w-96 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-5 rounded-md shadow-md z-50'>
+                <h3 className='text-center mb-4 text-lg font-bold text-gray-700'>Create Note</h3>
+                <form className='flex flex-col gap-3' onSubmit={handleSubmit}>
                     <input
-                        className={s.formInput}
+                        className='h-8 px-2 border-2 border-slate-400'
                         name="nameNote"
                         type="text"
                         placeholder="Name"
@@ -49,7 +48,7 @@ const NoteForm: React.FC = () => {
                         required
                     />
                     <select
-                        className={s.categorySelect}
+                        className='h-8 px-2 border-2 border-slate-400 cursor-pointer'
                         name="category"
                         value={categoryValue}
                         onChange={(e) => setCategoryValue(e.target.value)}
@@ -60,7 +59,7 @@ const NoteForm: React.FC = () => {
                         <option value="Idea">Idea</option>
                     </select>
                     <textarea
-                        className={s.formTextArea}
+                        className='h-14 p-2 min-h-[50px] border-2 border-slate-400'
                         name="content"
                         value={contentValue}
                         onChange={(e) => setContentValue(e.target.value)}
@@ -68,9 +67,9 @@ const NoteForm: React.FC = () => {
                         required
                     >
                 </textarea>
-                    <div className={s.btnBlock}>
-                        <button className={s.btnForm} type="submit">Add Note</button>
-                        <button className={s.btnForm} onClick={() => dispatch(closeForm())}>Close</button>
+                    <div className='flex justify-around mt-4'>
+                        <button className='px-5 py-1 bg-zinc-200 cursor-pointer transition-all  duration-200 hover:scale-110' type="submit">Add Note</button>
+                        <button className='px-5 py-1 bg-zinc-200 cursor-pointer transition-all duration-200 hover:scale-110' onClick={() => dispatch(closeForm())}>Close</button>
                     </div>
                 </form>
             </div>

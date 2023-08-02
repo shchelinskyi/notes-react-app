@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {archiveNote, deleteNote, editNote, Note, unzipNote} from "../../redux/slice/notesSlice"
 import {useAppDispatch} from "../../hook";
 import findDatesInString from "../../utils/findDatesInString";
-import s from './NoteItem.module.scss';
+
 
 interface NoteItemProps {
     item: Note;
@@ -46,12 +46,12 @@ const NoteItem: React.FC <NoteItemProps> = ({item}) => {
         };
 
     return (
-        <div className={s.note}>
-            <div className={s.nameBlock}>
-                <img src={imgSrc} className={s.imgName} alt='iconName'/>
-                {!isEdit && <span className={s.nameValue}>{item.nameValue}</span>}
+        <div className='py-2.5 pr-0 pl-2.5 mb-5 grid grid-cols-[3fr_1.5fr_2fr_2fr_100px_1fr] gap-5 items-center bg-gray-200'>
+            <div className='flex gap-2 items-center'>
+                <img src={imgSrc} className='w-10 h-10 object-cover' alt='iconName'/>
+                {!isEdit && <span className='w-full h-auto bg-transparent text-base font-bold text-gray-400'>{item.nameValue}</span>}
                 {isEdit && <input
-                    className={s.inputActive}
+                    className='w-full text-base font-bold text-gray-400 border-2 border-blue-500'
                     name="nameNote"
                     type="text"
                     placeholder="Name"
@@ -60,10 +60,10 @@ const NoteItem: React.FC <NoteItemProps> = ({item}) => {
                     required
                 />}
             </div>
-            <span className={s.createdItem}>{item.formattedDate}</span>
-            {!isEdit && <span className={s.createdItem}>{item.categoryValue}</span>}
+            <span className='bg-transparent text-base font-bold text-gray-400  text-center'>{item.formattedDate}</span>
+            {!isEdit && <span className='bg-transparent text-base font-bold text-gray-400 text-center'>{item.categoryValue}</span>}
             {isEdit &&
-            <select className={s.categoryItem}
+            <select className='bg-transparent text-base font-bold text-gray-400 text-center border-2 border-blue-500 cursor-pointer'
                     value={categoryValue}
                     name="category"
                     onChange={(e) => setCategoryValue(e.target.value)}
@@ -73,10 +73,10 @@ const NoteItem: React.FC <NoteItemProps> = ({item}) => {
                 <option value="Idea">Idea</option>
             </select>
             }
-            {!isEdit && <span className={s.contentValue}>{item.contentValue}</span>}
+            {!isEdit && <span className=' h-auto bg-transparent text-base font-bold text-gray-400'>{item.contentValue}</span>}
             {isEdit &&
                 <input
-                    className={s.inputActive}
+                    className='text-base font-bold text-gray-400 border-2 border-blue-500'
                     name="nameNote"
                     type="text"
                     placeholder="Name"
@@ -85,13 +85,13 @@ const NoteItem: React.FC <NoteItemProps> = ({item}) => {
                     required
                 />
             }
-            <span className={s.datesValue}>{item.datesValue}</span>
-            <div className={s.btnChangeBlock}>
-                {!isEdit && <button className={s.btnAction} onClick={() => setIsEdit(true)}>a</button>}
-                {isEdit && <button className={s.btnAction} onClick={(e) => handleEdit(e)}>e</button>}
-                {!item.archived &&   <button className={s.btnAction} onClick={()=> {dispatch(archiveNote(item.id))}}>c</button>}
-                {item.archived &&   <button className={s.btnAction} onClick={() => dispatch(unzipNote(item.id))}>d</button>}
-                <button className={s.btnAction} onClick={() => dispatch(deleteNote(item.id))}>b</button>
+            <span className=' h-auto bg-transparent text-base font-bold text-gray-400 text-center'>{item.datesValue}</span>
+            <div className='flex justify-end m-0 p-0'>
+                {!isEdit && <button className='w-1/3 bg-transparent border-none font-icon text-lg text-gray-400 cursor-pointer transition-all duration-25 font-code' onClick={() => setIsEdit(true)}>a</button>}
+                {isEdit && <button className='w-1/3 bg-transparent border-none font-icon text-lg text-gray-400 cursor-pointer transition-all duration-25 font-code' onClick={(e) => handleEdit(e)}>e</button>}
+                {!item.archived &&   <button className='w-1/3 bg-transparent border-none font-icon text-lg text-gray-400 cursor-pointer transition-all duration-25 font-code' onClick={()=> {dispatch(archiveNote(item.id))}}>c</button>}
+                {item.archived &&   <button className='w-1/3 bg-transparent border-none font-icon text-lg text-gray-400 cursor-pointer transition-all duration-25 font-code' onClick={() => dispatch(unzipNote(item.id))}>d</button>}
+                <button className='w-1/3 bg-transparent border-none font-icon text-lg text-gray-400 cursor-pointer transition-all duration-25 font-code' onClick={() => dispatch(deleteNote(item.id))}>b</button>
             </div>
         </div>
     );

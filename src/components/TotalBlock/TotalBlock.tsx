@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import s from './TotalBlock.module.scss';
 import {useAppSelector} from "../../hook";
 import changeTotalData from "../../utils/changeTotalData";
 import {TotalData} from "../../utils/changeTotalData";
@@ -32,12 +31,12 @@ const TotalBlock: React.FC = () => {
 
     return (
        <div>
-           <div className={s.titleBlockTotal}>
-               <div className={s.titleItem}>Note Category</div>
-               <div className={s.titleItem}>Active</div>
-               <div className={s.titleItem}>Archived</div>
+           <div className='grid grid-cols-[3fr_2fr_2fr_3fr] bg-neutral-400 text-white mb-4'>
+               <div className='p-3 text-center font-bold'>Note Category</div>
+               <div className='p-3 text-center font-bold'>Active</div>
+               <div className='p-3 text-center font-bold'>Archived</div>
            </div>
-           <div id="totalList" className={s.notesBlock}>
+           <div>
                {(totalData.taskActive > 0 || totalData.taskArchive > 0) &&
                    <TotalItem imgSrc='./img/task.png'
                               categoryName="Task"
@@ -60,7 +59,7 @@ const TotalBlock: React.FC = () => {
                    />
                }
 
-               {notes.length === 0 && <div className={s.noItems}>No data</div>}
+               {notes.length === 0 && <div className='text-center my-5 mx-0'>No data</div>}
            </div>
         </div>
     );
