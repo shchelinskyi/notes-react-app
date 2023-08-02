@@ -17,12 +17,9 @@ const MainContainer: React.FC = () => {
             <div className="p-5 mb-8 border-2 border-slate-700 rounded-xl">
                 <NoteTable/>
                 <div className="flex gap-20 justify-end">
-                    <button className="py-2 px-4 bg-zinc-300 hover:bg-zinc-400
-                    font-bold rounded text-gray-600" onClick={() => dispatch(openForm())}>Create Note</button>
-                    {!isArchivedBlockOpen && <button className="py-2 px-4 bg-zinc-300 hover:bg-zinc-400
-                    font-bold rounded text-gray-600" onClick={() => dispatch(openArchiveBlock())}>Show archived Notes</button>}
-                    {isArchivedBlockOpen && <button className="py-2 px-4 bg-zinc-300 hover:bg-zinc-400
-                    font-bold rounded text-gray-600" onClick={() => dispatch(closeArchiveBlock())}>Hide archived Notes</button>}
+                    <button className="btn-item-archived" onClick={() => dispatch(openForm())}>Create Note</button>
+                    {!isArchivedBlockOpen && <button className="btn-item-archived" onClick={() => dispatch(openArchiveBlock())}>Show archived Notes</button>}
+                    {isArchivedBlockOpen && <button className="btn-item-archived" onClick={() => dispatch(closeArchiveBlock())}>Hide archived Notes</button>}
                 </div>
             </div>
             {isArchivedBlockOpen &&

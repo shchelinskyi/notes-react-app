@@ -31,7 +31,7 @@ const TotalBlock: React.FC = () => {
 
     return (
        <div>
-           <div className='grid grid-cols-[3fr_2fr_2fr_3fr] bg-neutral-400 text-white mb-4'>
+           <div className='grid grid-cols-[3fr_2fr_2fr_3fr] bg-neutral-400 text-white mb-4 text-lg'>
                <div className='p-3 text-center font-bold'>Note Category</div>
                <div className='p-3 text-center font-bold'>Active</div>
                <div className='p-3 text-center font-bold'>Archived</div>

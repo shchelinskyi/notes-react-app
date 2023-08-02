@@ -28,9 +28,6 @@ const NoteForm: React.FC = () => {
         };
 
         dispatch(addNote(newNote));
-        setNameValue('');
-        setCategoryValue('');
-        setContentValue('');
         dispatch(closeForm());
     };
 
@@ -68,8 +65,8 @@ const NoteForm: React.FC = () => {
                     >
                 </textarea>
                     <div className='flex justify-around mt-4'>
-                        <button className='px-5 py-1 bg-zinc-200 cursor-pointer transition-all  duration-200 hover:scale-110' type="submit">Add Note</button>
-                        <button className='px-5 py-1 bg-zinc-200 cursor-pointer transition-all duration-200 hover:scale-110' onClick={() => dispatch(closeForm())}>Close</button>
+                        <button className='btn-form' type="submit">Add Note</button>
+                        <button className='btn-form' onClick={() => dispatch(closeForm())}>Close</button>
                     </div>
                 </form>
             </div>

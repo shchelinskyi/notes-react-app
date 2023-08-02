@@ -87,11 +87,11 @@ const NoteItem: React.FC <NoteItemProps> = ({item}) => {
             }
             <span className=' h-auto bg-transparent text-base font-bold text-gray-400 text-center'>{item.datesValue}</span>
             <div className='flex justify-end m-0 p-0'>
-                {!isEdit && <button className='w-1/3 bg-transparent border-none font-icon text-lg text-gray-400 cursor-pointer transition-all duration-25 font-code' onClick={() => setIsEdit(true)}>a</button>}
-                {isEdit && <button className='w-1/3 bg-transparent border-none font-icon text-lg text-gray-400 cursor-pointer transition-all duration-25 font-code' onClick={(e) => handleEdit(e)}>e</button>}
-                {!item.archived &&   <button className='w-1/3 bg-transparent border-none font-icon text-lg text-gray-400 cursor-pointer transition-all duration-25 font-code' onClick={()=> {dispatch(archiveNote(item.id))}}>c</button>}
-                {item.archived &&   <button className='w-1/3 bg-transparent border-none font-icon text-lg text-gray-400 cursor-pointer transition-all duration-25 font-code' onClick={() => dispatch(unzipNote(item.id))}>d</button>}
-                <button className='w-1/3 bg-transparent border-none font-icon text-lg text-gray-400 cursor-pointer transition-all duration-25 font-code' onClick={() => dispatch(deleteNote(item.id))}>b</button>
+                {!isEdit && <button className='btn-item' onClick={() => setIsEdit(true)}>a</button>}
+                {isEdit && <button className='btn-item' onClick={(e) => handleEdit(e)}>e</button>}
+                {!item.archived &&   <button className='btn-item' onClick={()=> {dispatch(archiveNote(item.id))}}>c</button>}
+                {item.archived &&   <button className='btn-item' onClick={() => dispatch(unzipNote(item.id))}>d</button>}
+                <button className='btn-item' onClick={() => dispatch(deleteNote(item.id))}>b</button>
             </div>
         </div>
     );
