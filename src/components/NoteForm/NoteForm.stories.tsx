@@ -1,9 +1,8 @@
-import React from "react";
 import type { Meta, StoryObj } from '@storybook/react';
 import { Provider } from 'react-redux';
 import store from "../../redux/store";
 import NoteForm from './NoteForm';
-import '../../index.css';
+
 
 
 const meta = {
@@ -11,7 +10,9 @@ const meta = {
     component: NoteForm,
     decorators: [
         (Story) => <Provider store={store}>
+            <div style={{ width: '100vw', height:'100vh'}}>
             <Story />
+            </div>
         </Provider>],
     parameters: {
         layout: 'centered',

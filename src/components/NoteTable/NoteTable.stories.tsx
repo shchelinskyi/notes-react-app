@@ -1,9 +1,8 @@
-import React from "react";
 import type { Meta, StoryObj } from '@storybook/react';
 import { Provider } from 'react-redux';
 import store from "../../redux/store";
 import NoteTable from './NoteTable';
-import '../../index.css';
+
 
 
 const meta = {

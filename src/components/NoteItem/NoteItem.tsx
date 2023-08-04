@@ -4,7 +4,7 @@ import {useAppDispatch} from "../../hook";
 import findDatesInString from "../../utils/findDatesInString";
 
 
-interface NoteItemProps {
+export interface NoteItemProps {
     item: Note;
 }
 const NoteItem: React.FC <NoteItemProps> = ({item}) => {
@@ -16,6 +16,7 @@ const NoteItem: React.FC <NoteItemProps> = ({item}) => {
     const [isEdit, setIsEdit] = useState(false);
     const dispatch = useAppDispatch();
 
+    console.log(item);
     useEffect(() => {
         if (item.categoryValue === 'Task') {
             setImgSrc('./img/task.png')
