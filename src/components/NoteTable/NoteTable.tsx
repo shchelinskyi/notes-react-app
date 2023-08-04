@@ -3,12 +3,22 @@ import NoteTableTitle from "../NoteTableTitle/NoteTableTitle";
 import NoteItem from "../NoteItem/NoteItem";
 import {useAppSelector} from "../../hook";
 
-const NoteTable: React.FC = () => {
-    const notes = useAppSelector((state) => state.notes.notes);
+export interface NoteTableProps {
+    tableTitle: string;
+    typeNotes: 'notes' | 'archivedNotes';
+}
+
+const NoteTable: React.FC<NoteTableProps> = ({tableTitle, typeNotes }) => {
+    const notes = useAppSelector((state) => {
+        if (typeNotes === 'notes') {
+            return  state.notes.notes
+        } else {
+            return  state.notes.archivedNotes
+        }});
 
     return (
        <div>
-           <h3 className='mt-2.5 mx-0 mb-5 text-lg text-center text-gray-400 font-bold'>My Notes</h3>
+           <h3 className='mt-2.5 mx-0 mb-5 text-lg text-center text-gray-400 font-bold'>{tableTitle}</h3>
            <NoteTableTitle/>
            <div>
                {notes.length>0 && notes.map(item => <NoteItem key= {item.id} item={item} /> )}

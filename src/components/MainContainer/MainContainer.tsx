@@ -2,29 +2,44 @@ import React from 'react';
 import {useAppDispatch, useAppSelector} from '../../hook'
 import NoteTable from "../NoteTable/NoteTable";
 import NoteForm from "../NoteForm/NoteForm";
-import NoteArchiveTable from "../NoteArchiveTable/NoteArchiveTable";
 import TotalBlock from "../TotalBlock/TotalBlock";
+import Button from "../Button/Button"
 import {openForm} from "../../redux/slice/formSlice";
 import {closeArchiveBlock, openArchiveBlock} from "../../redux/slice/archiveBlockSlice";
+import { AnyAction } from 'redux';
+
 
 const MainContainer: React.FC = () => {
     const dispatch = useAppDispatch();
     const isFormOpen = useAppSelector(state => state.form.openForm);
     const isArchivedBlockOpen = useAppSelector(state => state.archiveBlock.openArchiveBlock);
 
+    const handleOpenForm = (): AnyAction => {
+        return dispatch(openForm());
+    };
+    const handleOpenArchiveBlock = (): AnyAction => {
+        return dispatch(openArchiveBlock());
+    };
+    const handleHideArchiveBlock = (): AnyAction => {
+        return dispatch(closeArchiveBlock());
+    };
+
+
     return (
         <div className="p-2 max-w-7xl mx-auto mt-8 border-black">
             <div className="p-5 mb-8 border-2 border-slate-700 rounded-xl">
-                <NoteTable/>
+                <NoteTable tableTitle='My Notes' typeNotes='notes'/>
                 <div className="flex gap-20 justify-end">
-                    <button className="btn-item-archived" onClick={() => dispatch(openForm())}>Create Note</button>
-                    {!isArchivedBlockOpen && <button className="btn-item-archived" onClick={() => dispatch(openArchiveBlock())}>Show archived Notes</button>}
-                    {isArchivedBlockOpen && <button className="btn-item-archived" onClick={() => dispatch(closeArchiveBlock())}>Hide archived Notes</button>}
+                    <Button clickFunc='openForm' size="medium">Create Note</Button>
+                    {!isArchivedBlockOpen &&
+                        <Button clickFunc='openArchiveBlock' size="medium">Show archived Notes</Button>}
+                    {isArchivedBlockOpen
+                        && <Button clickFunc='closeArchiveBlock' size="medium">Hide archived Notes</Button>}
                 </div>
             </div>
             {isArchivedBlockOpen &&
                 <div className="p-5 border-2 border-slate-700 rounded-xl mb-8">
-                    <NoteArchiveTable/>
+                    <NoteTable tableTitle='Archived Notes' typeNotes='archivedNotes'/>
                 </div>
             }
             <div className="p-5 border-2 border-slate-700 rounded-xl">
